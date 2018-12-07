@@ -10,15 +10,15 @@ const FinalPoem = (props) => {
 
   const poemContent = props.submissions.map((line, i) => {
     return <p key={ i }>{ line }</p>;
-  })
+  });
 
   const revealedPoem =
     <section className="FinalPoem__poem">
       <h3>Final Poem</h3>
       { poemContent }
-    </section>
+    </section>;
 
-  const content = props.isSubmitted ? revealedPoem : revealPoemButton
+  const content = props.isSubmitted ? revealedPoem : revealPoemButton;
 
   return (
     <div className="FinalPoem">
