@@ -1,0 +1,21 @@
+.FinalPoem__reveal-form {
+  display: flex;
+  justify-content: center;
+}
+
+.FinalPoem__reveal-btn {
+  flex: 0.8;
+
+  padding: 1rem;
+  border: 2px black solid;
+  box-shadow: 5px 10px black;
+  transition: 0.25s;
+}
+
+.FinalPoem__reveal-btn:hover {
+  background-color: tomato;
+}
+
+.FinalPoem__poem {
+  border-bottom: 2px gray dashed;
+}

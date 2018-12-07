@@ -1,0 +1,8 @@
+.RecentSubmission {
+  margin: 2rem auto;
+}
+
+.RecentSubmission__submission {
+  text-align: center;
+  line-height: 3rem;
+}

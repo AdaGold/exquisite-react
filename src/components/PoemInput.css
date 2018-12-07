@@ -1,0 +1,7 @@
+.PoemInput__input.invalid {
+  background-color: #FFE9E9;
+}
+
+.PoemInput__input.invalid::placeholder {
+  color: black;
+}
