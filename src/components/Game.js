@@ -8,23 +8,6 @@ class Game extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      submissions: [],
-      isSubmitted: false,
-    }
-  }
-
-  revealPoem = (e) => {
-    e.preventDefault();
-    this.setState({
-      isSubmitted: true
-    });
-  }
-
-  addPlayerSubmission = (submission) => {
-    this.setState({
-      submissions: [ ...this.state.submissions, submission],
-    });
   }
 
   render() {
@@ -36,13 +19,6 @@ class Game extends Component {
         return field;
       }
     }).join(" ");
-
-    const mostRecentSubmission = this.state.submissions.length > 0 && !this.state.isSubmitted ? <RecentSubmission submission={ this.state.submissions[this.state.submissions.length - 1] } /> : '';
-
-    const playerSubmissionForm = this.state.isSubmitted ? '' : <PlayerSubmissionForm
-      index={ this.state.submissions.length + 1 }
-      sendSubmission={ this.addPlayerSubmission }
-      fields={ FIELDS } />;
 
     return (
       <div className="Game">
@@ -56,15 +32,11 @@ class Game extends Component {
           { exampleFormat }
         </p>
 
+        <RecentSubmission />
 
-        { mostRecentSubmission }
+        <PlayerSubmissionForm />
 
-        { playerSubmissionForm }
-
-        <FinalPoem
-          isSubmitted={ this.state.isSubmitted }
-          revealPoem={ this.revealPoem }
-          submissions={ this.state.submissions } />
+        <FinalPoem />
 
       </div>
     );
