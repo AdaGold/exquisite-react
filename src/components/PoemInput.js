@@ -1,6 +1,11 @@
 import React from 'react';
+import './PoemInput.css';
 
 const PoemInput = (props) => {
+
+  const isValid = () => {
+    return props.value.length;
+  }
 
   return (
     <input
@@ -8,7 +13,7 @@ const PoemInput = (props) => {
       value={ props.value }
       onChange={ (e) => { props.onPoemInputChange(e.target.value, props.inputId) } }
       type="text"
-      className="PoemInput"
+      className={isValid() ? "PoemInput__input" : "PoemInput__input invalid"}
     />
   );
 }
