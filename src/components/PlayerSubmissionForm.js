@@ -40,7 +40,7 @@ class PlayerSubmissionForm extends Component {
         return field;
       }
     });
-    this.props.sendSubmission(submission.join(" ") + ".");
+    this.props.sendSubmission(submission.join(" "));
     this.resetForm();
   }
 
