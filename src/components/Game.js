@@ -9,7 +9,6 @@ class Game extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      playerCount: 1,
       submissions: [],
       isSubmitted: false,
     }
@@ -25,7 +24,6 @@ class Game extends Component {
   addPlayerSubmission = (submission) => {
     this.setState({
       submissions: [ ...this.state.submissions, submission],
-      playerCount: this.state.playerCount + 1,
     });
   }
 
@@ -72,7 +70,7 @@ class Game extends Component {
     const mostRecentSubmission = this.state.submissions.length > 0 && !this.state.isSubmitted ? <RecentSubmission submission={ this.state.submissions[this.state.submissions.length - 1] } /> : '';
 
     const playerSubmissionForm = this.state.isSubmitted ? '' : <PlayerSubmissionForm
-      index={ this.state.playerCount }
+      index={ this.state.submissions.length + 1 }
       sendSubmission={ this.addPlayerSubmission }
       fields={ fields } />;
 
