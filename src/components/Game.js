@@ -31,39 +31,50 @@ class Game extends Component {
 
   render() {
 
+    const fields = [
+      "The",
+      {
+        key: 'adj1',
+        placeholder: 'adjective',
+      },
+      {
+        key: 'noun1',
+        placeholder: 'noun',
+      },
+      {
+        key: 'adv',
+        placeholder: 'adverb',
+      },
+      {
+        key: 'verb',
+        placeholder: 'verb',
+      },
+      "the",
+      {
+        key: 'adj2',
+        placeholder: 'adjective',
+      },
+      {
+        key: 'noun2',
+        placeholder: 'noun',
+      },
+      ".",
+    ];
+
+    const exampleFormat = fields.map((field) => {
+      if (field.key) {
+        return field.placeholder;
+      } else {
+        return field;
+      }
+    }).join(" ");
+
     const mostRecentSubmission = this.state.submissions.length > 0 && !this.state.isSubmitted ? <RecentSubmission submission={ this.state.submissions[this.state.submissions.length - 1] } /> : '';
 
     const playerSubmissionForm = this.state.isSubmitted ? '' : <PlayerSubmissionForm
       index={ this.state.playerCount }
       sendSubmission={ this.addPlayerSubmission }
-      fields={ [
-        "The",
-        {
-          key: 'adj1',
-          placeholder: 'adjective',
-        },
-        {
-          key: 'noun1',
-          placeholder: 'noun',
-        },
-        {
-          key: 'adv',
-          placeholder: 'adverb',
-        },
-        {
-          key: 'verb',
-          placeholder: 'verb',
-        },
-        "the",
-        {
-          key: 'adj2',
-          placeholder: 'adjective',
-        },
-        {
-          key: 'noun2',
-          placeholder: 'noun',
-        }
-      ] } />;
+      fields={ fields } />;
 
     return (
       <div className="Game">
@@ -74,7 +85,7 @@ class Game extends Component {
         <p>Please follow the following format for your poetry submission:</p>
 
         <p className="Game__format-example">
-          "The <em>adjective</em> <em>noun</em> <em>adverb</em> <em>verb</em> the <em>adjective</em> <em>noun</em>."
+          { exampleFormat }
         </p>
 
 
