@@ -29,37 +29,7 @@ class Game extends Component {
 
   render() {
 
-    const fields = [
-      "The",
-      {
-        key: 'adj1',
-        placeholder: 'adjective',
-      },
-      {
-        key: 'noun1',
-        placeholder: 'noun',
-      },
-      {
-        key: 'adv',
-        placeholder: 'adverb',
-      },
-      {
-        key: 'verb',
-        placeholder: 'verb',
-      },
-      "the",
-      {
-        key: 'adj2',
-        placeholder: 'adjective',
-      },
-      {
-        key: 'noun2',
-        placeholder: 'noun',
-      },
-      ".",
-    ];
-
-    const exampleFormat = fields.map((field) => {
+    const exampleFormat = FIELDS.map((field) => {
       if (field.key) {
         return field.placeholder;
       } else {
@@ -72,7 +42,7 @@ class Game extends Component {
     const playerSubmissionForm = this.state.isSubmitted ? '' : <PlayerSubmissionForm
       index={ this.state.submissions.length + 1 }
       sendSubmission={ this.addPlayerSubmission }
-      fields={ fields } />;
+      fields={ FIELDS } />;
 
     return (
       <div className="Game">
@@ -100,5 +70,35 @@ class Game extends Component {
     );
   }
 }
+
+const FIELDS = [
+  "The",
+  {
+    key: 'adj1',
+    placeholder: 'adjective',
+  },
+  {
+    key: 'noun1',
+    placeholder: 'noun',
+  },
+  {
+    key: 'adv',
+    placeholder: 'adverb',
+  },
+  {
+    key: 'verb',
+    placeholder: 'verb',
+  },
+  "the",
+  {
+    key: 'adj2',
+    placeholder: 'adjective',
+  },
+  {
+    key: 'noun2',
+    placeholder: 'noun',
+  },
+  ".",
+];
 
 export default Game;
