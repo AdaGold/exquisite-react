@@ -25,9 +25,40 @@ You may reference [the live demo of this project](https://adagold.github.io/exqu
 
 ## Getting Started
 
+Besides the `App` component, we've provided the following components and CSS for them:
 
-### About the CSS
+- `Game`
+- `PlayerSubmissionForm`
+- `PoemInput`
+- `FinalPoem`
+- `RecentSubmission`
 
+Each component already has some code in there for rendering. However, everything else is missing: `state`, `props`, any callbacks, event handlers, or helper functions (with the exception of `Game` component). However, not every render function may need to look like that in the end result. In fact, **it is expected that the render functions change** in order to accommodate the requirements (namely the ones about conditional rendering).
+
+After you fork and clone this project, run `npm install` and `npm start`. What do you see? Can you identify what you see and which component it comes from?
+
+### A Note About Styles
+
+We have provided styles for you in `.css` files. Styling is not a major learning goal for this project, so please limit the amount of time you spend on styling.
+
+To ease the use of our styles, the project conforms to a naming methodology/naming convention standard known as [BEM, or Block Element Modifier](http://getbem.com/). Essentially, you can count on the provided styles to conform to the following naming rules:
+- There aren't any, or rarely any element/tag selectors or ID selectors, and all styles selectors are on classes. That means there are are a lot more classes to set, but it relies less on assuming a specific HTML structure before understanding how to use it
+- Classes are named in [block__element--modifier](http://getbem.com/naming/) format:
+  - The first section, `block`, will describe the semantic block that the style applies to
+  - The second section, `element` (after two underscores), will describe the specific element within that block that the style applies to
+  - The third section `modifier` (after two hyphens), will describe any sort of modifier (ie `enabled`, `success`, `green`) for that block and element that the style applies to
+
+Here's an example:
+```css
+.new-card-form__header {
+  text-align: center;
+  ...
+}
+```
+
+In this case, there is some "block" (section, idea, maybe component) named `new-card-form`, and this style is for the "element" that represents the header by name of `header`. This style makes the header in the new card form `text-align: center;`. Note that this does not dictate what kind of HTML tag this is, or what its parent or children are.
+
+Again, please limit the time you spend on styling, and reach out often and frequently.
 
 ## Requirements
 
