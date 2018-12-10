@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './PlayerSubmissionForm.css';
-import PoemInput from './PoemInput';
+// import PoemInput from './PoemInput';
 
 class PlayerSubmissionForm extends Component {
 
@@ -44,16 +44,21 @@ class PlayerSubmissionForm extends Component {
     this.resetForm();
   }
 
+  isValidInput = (val) => {
+    return val.length;
+  }
+
   render() {
 
     const inputContent = this.props.fields.map( (field, i) => {
       if (field.key) {
-        return <PoemInput
+        return <input
           key={ i }
           placeholder={ field.placeholder }
           value={ this.state[field.key] }
-          inputId={ field.key }
-          onPoemInputChange={ this.onPoemInputChange }
+          onChange={ (e) => { this.onPoemInputChange(e.target.value, field.key) } }
+          type="text"
+          className={this.isValidInput(this.state[field.key]) ? "PlayerSubmissionForm__input" : "PlayerSubmissionForm__input invalid"}
         />;
       } else {
         return field;
