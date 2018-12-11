@@ -1,5 +1,9 @@
 # Exquisite React
 
+## At a Glance
+- Individual, [stage 2](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/rule-of-three.md#stage-2) project
+- Due before class, **DATE HERE**
+
 ## Introduction
 
 > Exquisite Corpse is a collaborative poetry game that traces its roots to the Parisian Surrealist Movement. Exquisite Corpse is played by several people, each of whom writes a word on a sheet of paper, folds the paper to conceal it, and passes it on to the next player for [their] contribution.
@@ -135,3 +139,6 @@ Refactor your project so `PlayerSubmissionForm` dynamically generates the poetry
 `FIELDS` is an array that contains both strings and objects. Iterating over this and using elements in this array should have certain conditions to think about, but it shouldn't feel too tricky.
 
 Feel free to use a different data structure other than what `FIELDS` has if you don't like it, but it's what the deployed version uses.
+
+## What Instructors Are Looking For
+Check out the [feedback template](feedback.md) which lists the items instructors will be looking for as they evaluate your project.
