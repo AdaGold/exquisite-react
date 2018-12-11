@@ -10,9 +10,9 @@ const FinalPoem = (props) => {
 
       </section>
 
-      <form className="FinalPoem__reveal-form">
-        <input type="submit" value="We are finished: Reveal the Poem" className="FinalPoem__reveal-btn" />
-      </form>
+      <div className="FinalPoem__reveal-btn-container">
+        <input type="button" value="We are finished: Reveal the Poem" className="FinalPoem__reveal-btn" />
+      </div>
     </div>
   );
 }
