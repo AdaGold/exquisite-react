@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './PlayerSubmissionForm.css';
-// import PoemInput from './PoemInput';
 
 class PlayerSubmissionForm extends Component {
 
@@ -58,7 +57,7 @@ class PlayerSubmissionForm extends Component {
           value={ this.state[field.key] }
           onChange={ (e) => { this.onPoemInputChange(e.target.value, field.key) } }
           type="text"
-          className={this.isValidInput(this.state[field.key]) ? "PlayerSubmissionForm__input" : "PlayerSubmissionForm__input invalid"}
+          className={this.isValidInput(this.state[field.key]) ? "PlayerSubmissionForm__input" : "PlayerSubmissionForm__input--invalid"}
         />;
       } else {
         return field;

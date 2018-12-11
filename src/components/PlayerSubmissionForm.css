@@ -31,10 +31,10 @@
 background-color: tomato;
 }
 
-.PlayerSubmissionForm__input.invalid {
+.PlayerSubmissionForm__input--invalid {
   background-color: #FFE9E9;
 }
 
-.PlayerSubmissionForm__input.invalid::placeholder {
+.PlayerSubmissionForm__input--invalid::placeholder {
   color: black;
 }
