@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './PlayerSubmissionForm.css';
-import PoemInput from './PoemInput';
 
 class PlayerSubmissionForm extends Component {
 
@@ -19,9 +18,11 @@ class PlayerSubmissionForm extends Component {
           <div className="PlayerSubmissionForm__poem-inputs">
 
             {
-              // Put your PoemInputs here... We've put in one below as an example
+              // Put your form inputs here... We've put in one below as an example
             }
-            <PoemInput />
+            <input
+              placeholder="hm..."
+              type="text" />
 
           </div>
 

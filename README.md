@@ -25,7 +25,6 @@ Besides the `App` component, we've provided the following components and CSS for
 
 - `Game`
 - `PlayerSubmissionForm`
-- `PoemInput`
 - `FinalPoem`
 - `RecentSubmission`
 
@@ -64,7 +63,7 @@ Again, please limit the time you spend on styling, and reach out often and frequ
 1. For each component, list out what data needs to be referenced within it, and what data type each piece of data is. Particularly, think about:
     - If the `PlayerSubmissionForm` component handles a player's submission of poetry, what should that component do with that data?
     - How should the `FinalPoem` component get all of the parts of the poem?
-    - What kind of input elements should `PlayerSubmissionForm` use? What does this mean about the `PoemInput` component?
+    - What kind of input elements should `PlayerSubmissionForm` use? (aka checkbox, text, button, submit, etc...)
     - What should the `Game` component represent and be responsible for?
 1. For each piece of data in each component, determine if it should be part of that component's `state` or passed in as a `prop`.
 
