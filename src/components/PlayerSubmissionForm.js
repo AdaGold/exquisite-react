@@ -1,38 +1,31 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './PlayerSubmissionForm.css';
 
-class PlayerSubmissionForm extends Component {
+const PlayerSubmissionForm = () => {
+  return (
+    <div className="PlayerSubmissionForm">
+      <h3>Player Submission Form for Player #{  }</h3>
 
-  constructor(props) {
-    super(props);
-  }
+      <form className="PlayerSubmissionForm__form" >
 
-  render() {
+        <div className="PlayerSubmissionForm__poem-inputs">
 
-    return (
-      <div className="PlayerSubmissionForm">
-        <h3>Player Submission Form for Player #{  }</h3>
+          {
+            // Put your form inputs here... We've put in one below as an example
+          }
+          <input
+            placeholder="hm..."
+            type="text" />
 
-        <form className="PlayerSubmissionForm__form" >
+        </div>
 
-          <div className="PlayerSubmissionForm__poem-inputs">
-
-            {
-              // Put your form inputs here... We've put in one below as an example
-            }
-            <input
-              placeholder="hm..."
-              type="text" />
-
-          </div>
-
-          <div className="PlayerSubmissionForm__submit">
-            <input type="submit" value="Submit Line" className="PlayerSubmissionForm__submit-btn" />
-          </div>
-        </form>
-      </div>
-    );
-  }
+        <div className="PlayerSubmissionForm__submit">
+          <input type="submit" value="Submit Line" className="PlayerSubmissionForm__submit-btn" />
+        </div>
+      </form>
+    </div>
+  );
 }
+
 
 export default PlayerSubmissionForm;
