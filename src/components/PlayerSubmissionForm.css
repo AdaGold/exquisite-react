@@ -28,7 +28,15 @@
 }
 
 .PlayerSubmissionForm__submit-btn:hover {
-background-color: tomato;
+  background-color: tomato;
+}
+
+.PlayerSubmissionFormt__input--invalid {
+  background-color: #FFE9E9;
+}
+
+.PlayerSubmissionForm__input--invalid::placeholder {
+  color: black;
 }
 
 .PlayerSubmissionForm__input--invalid {
