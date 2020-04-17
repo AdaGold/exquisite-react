@@ -5,6 +5,19 @@ import FinalPoem from './FinalPoem';
 import RecentSubmission from './RecentSubmission';
 
 const Game = () => {
+
+  const [submissions, setSubmissions] = useState([]);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const revealPoem = (e) => {
+    e.preventDefault();
+    setIsSubmitted(true);
+  }
+
+  const addPlayerSubmission = (submission) => {
+    setSubmissions([ ...submissions, submission]);
+  }
+
   const exampleFormat = FIELDS.map((field) => {
     if (field.key) {
       return field.placeholder;
@@ -12,6 +25,13 @@ const Game = () => {
       return field;
     }
   }).join(" ");
+
+  const mostRecentSubmission = submissions.length > 0 && !isSubmitted ? <RecentSubmission submission={ submissions[submissions.length - 1] } /> : '';
+
+  const playerSubmissionForm = isSubmitted ? '' : <PlayerSubmissionForm
+    index={ submissions.length + 1 }
+    sendSubmission={ addPlayerSubmission }
+    fields={ FIELDS } />;
 
   return (
     <div className="Game">
@@ -25,11 +45,14 @@ const Game = () => {
         { exampleFormat }
       </p>
 
-      <RecentSubmission />
+      { mostRecentSubmission }
 
-      <PlayerSubmissionForm />
+      { playerSubmissionForm }
 
-      <FinalPoem />
+      <FinalPoem
+        isSubmitted={ isSubmitted }
+        revealPoem={ revealPoem }
+        submissions={ submissions } />
 
     </div>
   );

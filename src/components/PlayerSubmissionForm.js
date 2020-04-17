@@ -1,21 +1,54 @@
 import React, { useState } from 'react';
 import './PlayerSubmissionForm.css';
 
-const PlayerSubmissionForm = () => {
+const PlayerSubmissionForm = (props) => {
+
+  const initialFieldValues = {};
+  props.fields.forEach((field) => {
+    if (field.key) {
+      initialFieldValues[field.key] = '';
+    }
+  });
+
+  const [formFields, setFormFields] = useState(initialFieldValues);
+
+  const resetForm = () => {
+    setFormFields(initialFieldValues);
+  }
+
+  const onPoemInputChange = (val, id) => {
+    setFormFields({
+      ...formFields,
+      [id]: val,
+    });
+  }
+
+  const sendSubmission = (e) => {
+    e.preventDefault();
+    const submission = props.fields.map((field) => {
+      if (field.key) {
+        return formFields[field.key];
+      } else {
+        return field;
+      }
+    });
+    props.sendSubmission(submission.join(" "));
+    resetForm();
+  }
 
   const isValidInput = (val) => {
     return val.length;
   }
 
-  const inputContent = this.props.fields.map( (field, i) => {
+  const inputContent = props.fields.map( (field, i) => {
     if (field.key) {
       return <input
         key={ i }
         placeholder={ field.placeholder }
-        value={ this.state[field.key] }
-        onChange={ (e) => { this.onPoemInputChange(e.target.value, field.key) } }
+        value={ formFields[field.key] }
+        onChange={ (e) => { onPoemInputChange(e.target.value, field.key) } }
         type="text"
-        className={isValidInput(this.state[field.key]) ? "PlayerSubmissionForm__input" : "PlayerSubmissionForm__input--invalid"}
+        className={isValidInput(formFields[field.key]) ? "PlayerSubmissionForm__input" : "PlayerSubmissionForm__input--invalid"}
       />;
     } else {
       return field;
@@ -24,10 +57,10 @@ const PlayerSubmissionForm = () => {
 
   return (
     <div className="PlayerSubmissionForm">
-      <h3>Player Submission Form for Player #{ this.props.index }</h3>
+      <h3>Player Submission Form for Player #{ props.index }</h3>
 
       <form
-        onSubmit={ this.sendSubmission }
+        onSubmit={ sendSubmission }
         className="PlayerSubmissionForm__form">
 
         <div className="PlayerSubmissionForm__poem-inputs">
