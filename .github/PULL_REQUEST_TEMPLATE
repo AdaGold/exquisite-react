@@ -1,10 +1,12 @@
-# Exquisite React
-Congratulations! You're submitting your assignment.
+# Assignment Submission: Exquisite React
 
-## Comprehension Questions
+Congratulations! You're submitting your assignment. Please reflect on the assignment with these questions.
 
-Feature | Feedback
+## Reflection
+
+Prompt | Response
 --- | ---
-How did this project differ from in-class examples? |
-How was this project similar to in-class examples? |
-If you had time to refactor one part of this project, what would you do to make it better? |
+Define in your own words: What does "state" in React mean? How do we use it? | 
+Describe the relationships between the components on a high-level: which components were siblings? Which components were nested within each other? | 
+How did this project differ from in-class examples? | 
+How was this project similar to in-class examples? | 
