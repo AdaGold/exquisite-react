@@ -3,6 +3,7 @@
 ## At a Glance
 - Individual, [stage 2](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/classroom/rule-of-three.md#stage-2) project
 - Due before class, **[Enter Date Here]**
+- Submit this project with a PR
 
 ## Introduction
 
