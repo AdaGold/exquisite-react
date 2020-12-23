@@ -11,7 +11,7 @@ const Game = () => {
     } else {
       return field;
     }
-  }).join(" ");
+  }).join(' ');
 
   return (
     <div className="Game">
@@ -37,7 +37,7 @@ const Game = () => {
 
 
 const FIELDS = [
-  "The",
+  'The',
   {
     key: 'adj1',
     placeholder: 'adjective',
@@ -54,7 +54,7 @@ const FIELDS = [
     key: 'verb',
     placeholder: 'verb',
   },
-  "the",
+  'the',
   {
     key: 'adj2',
     placeholder: 'adjective',
@@ -63,7 +63,7 @@ const FIELDS = [
     key: 'noun2',
     placeholder: 'noun',
   },
-  ".",
+  '.',
 ];
 
 export default Game;
