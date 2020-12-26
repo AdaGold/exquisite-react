@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './FinalPoem.css';
 
 const FinalPoem = (props) => {
@@ -16,5 +17,11 @@ const FinalPoem = (props) => {
     </div>
   );
 }
+
+FinalPoem.propTypes = {
+  isSubmitted: PropTypes.bool.isRequired,
+  submissions: PropTypes.arrayOf(PropTypes.string).isRequired,
+  revealPoem: PropTypes.func.isRequired,
+};
 
 export default FinalPoem;
