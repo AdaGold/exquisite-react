@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+
 import './PlayerSubmissionForm.css';
 
 const PlayerSubmissionForm = (props) => {
@@ -40,13 +42,13 @@ const PlayerSubmissionForm = (props) => {
     return val.length;
   }
 
-  const inputContent = props.fields.map( (field, i) => {
+  const inputContent = props.fields.map((field, i) => {
     if (field.key) {
       return <input
-        key={ i }
-        placeholder={ field.placeholder }
-        value={ formFields[field.key] }
-        onChange={ (e) => { onPoemInputChange(e.target.value, field.key) } }
+        key={i}
+        placeholder={field.placeholder}
+        value={formFields[field.key]}
+        onChange={(e) => { onPoemInputChange(e.target.value, field.key) }}
         type="text"
         className={isValidInput(formFields[field.key]) ? "PlayerSubmissionForm__input" : "PlayerSubmissionForm__input--invalid"}
       />;
@@ -57,10 +59,10 @@ const PlayerSubmissionForm = (props) => {
 
   return (
     <div className="PlayerSubmissionForm">
-      <h3>Player Submission Form for Player #{ props.index }</h3>
+      <h3>Player Submission Form for Player #{props.index}</h3>
 
       <form
-        onSubmit={ sendSubmission }
+        onSubmit={sendSubmission}
         className="PlayerSubmissionForm__form">
 
         <div className="PlayerSubmissionForm__poem-inputs">
@@ -75,7 +77,24 @@ const PlayerSubmissionForm = (props) => {
       </form>
     </div>
   )
+};
+
+PlayerSubmissionForm.propTypes = {
+  index: PropTypes.number.isRequired,
+  sendSubmission: PropTypes.func.isRequired,
+  fields: PropTypes.arrayOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      key: PropTypes.string.isRequired,
+      placeholder: PropTypes.string.isRequired,
+    }),
+  ])).isRequired,
 }
+
+
+// index={ submissions.length + 1 }
+//     sendSubmission={ addPlayerSubmission }
+//     fields={ FIELDS }
 
 
 export default PlayerSubmissionForm;
