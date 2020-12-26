@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+
 import './PlayerSubmissionForm.css';
 
 const PlayerSubmissionForm = () => {
@@ -27,5 +29,16 @@ const PlayerSubmissionForm = () => {
   );
 }
 
+PlayerSubmissionForm.propTypes = {
+  index: PropTypes.number.isRequired,
+  sendSubmission: PropTypes.func.isRequired,
+  fields: PropTypes.arrayOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.shape({
+      key: PropTypes.string.isRequired,
+      placeholder: PropTypes.string.isRequired,
+    }),
+  ])).isRequired,
+}
 
 export default PlayerSubmissionForm;
