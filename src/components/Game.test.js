@@ -38,15 +38,19 @@ const FIELDS = [
 const INPUT_FIELDS = FIELDS.filter((element) => typeof element !== 'string');
 
 describe.skip('Game', () => {
-  test('it renders in the document', () => {
-    // Act
-    render(<Game />);
 
-    const rulesText = screen.getByText(/Each player should take turns filling out and submitting the form below/i);
-    expect(rulesText).toBeInTheDocument();
+  describe('Wave 1:  Rendering Game', () => {
 
-    const playerText = screen.getByText(/Player Submission Form for Player \#1/i);
-    expect(playerText).toBeInTheDocument();
+    test('it renders in the document', () => {
+      // Act
+      render(<Game />);
+
+      const rulesText = screen.getByText(/Each player should take turns filling out and submitting the form below/i);
+      expect(rulesText).toBeInTheDocument();
+
+      const playerText = screen.getByText(/Player Submission Form for Player \#1/i);
+      expect(playerText).toBeInTheDocument();
+    });
   });
 
   describe('User Interaction', () => {
@@ -65,7 +69,7 @@ describe.skip('Game', () => {
         const inputFields = screen.queryAllByPlaceholderText(regex);
 
         let inputField = undefined;
-        if (inputFields.length === 1) {            
+        if (inputFields.length === 1) {
           inputField = inputFields[0];
         } else {
           for (let j = 0; j < inputFields.length; j++) {
@@ -94,55 +98,102 @@ describe.skip('Game', () => {
     });
 
 
-    test('you can click on the "We are finished: Reveal the Poem" button', () => {
-      // Arrange
-      // Submit the poem
-      const finishPoemButton = screen.getByDisplayValue(/We are finished: Reveal the Poem/i);
-      // Make sure finish the poem is in the document
-      expect(finishPoemButton).toBeInTheDocument();
+    describe('Wave 2:  Showing lines of poetry', () => {
+
+      test('you can enter a line of the poem', () => {
+        const line = ['big', 'cat', 'abruptly', 'eats', 'tasty', 'dogfood'];
+        // Act-Assert
+        enterLineToPoem(line);
+      });
       
-      // Act
-      userEvent.click(finishPoemButton);
-
-      // Assert
-      expect(screen.getByText(/Final Poem/i)).toBeInTheDocument();
-    });
-  
-    test('you can enter a line of the poem', () => {
-      const line = ['big', 'cat', 'abruptly', 'eats', 'tasty', 'dogfood'];
-      // Act-Assert
-      enterLineToPoem(line);
-    });
-
-    test('Adding 2 lines to the poem and then revealing it', () => {
-      const line1 = ['big', 'cat', 'abruptly', 'eats', 'tasty', 'dogfood'];
-      const line2 = ['small', 'pooch', 'slowly', 'whines', 'annoying', 'pest'];
+      test('you can click on the "We are finished: Reveal the Poem" button', () => {
+        // Arrange
+        // Submit the poem
+        const finishPoemButton = screen.getByDisplayValue(/We are finished: Reveal the Poem/i);
+        // Make sure finish the poem is in the document
+        expect(finishPoemButton).toBeInTheDocument();
       
-      // Enter the 1st line into the poem
-      enterLineToPoem(line1);
+        // Act
+        userEvent.click(finishPoemButton);
 
-      // Enter the 2nd line into the poem
-      enterLineToPoem(line2);
-
-      // Now "abruptly" won't be shown
-      const abruptlyElement = screen.queryByText(/abruptly/)
-      expect(abruptlyElement).toBeNull();
-
-      // Submit the poem
-      const finishPoemButton = screen.getByDisplayValue(/We are finished: Reveal the Poem/i);
-      userEvent.click(finishPoemButton);
-
-      // Assert the poem is displayed
-      line1.forEach((word) => {
-        expect(screen.getByText(new RegExp(word, 'i'))).toBeInTheDocument();
+        // Assert
+        expect(screen.getByText(/Final Poem/i)).toBeInTheDocument();
       });
 
-      line2.forEach((word) => {
-        expect(screen.getByText(new RegExp(word, 'i'))).toBeInTheDocument();
+      test('Adding 2 lines to the poem and then revealing it', () => {
+        const line1 = ['big', 'cat', 'abruptly', 'eats', 'tasty', 'dogfood'];
+        const line2 = ['small', 'pooch', 'slowly', 'whines', 'annoying', 'pest'];
+      
+        // Enter the 1st line into the poem
+        enterLineToPoem(line1);
+
+        // Enter the 2nd line into the poem
+        enterLineToPoem(line2);
+
+        // Submit the poem
+        const finishPoemButton = screen.getByDisplayValue(/We are finished: Reveal the Poem/i);
+        userEvent.click(finishPoemButton);
+
+        // Assert the poem is displayed
+        line1.forEach((word) => {
+          expect(screen.getByText(new RegExp(word, 'i'))).toBeInTheDocument();
+        });
+
+        line2.forEach((word) => {
+          expect(screen.getByText(new RegExp(word, 'i'))).toBeInTheDocument();
+        });
+
+        // Check that it says, "Final Poem"
+        expect(screen.getByText(/Final Poem/i)).toBeInTheDocument();
+      });
+    });
+
+    describe('Wave 3, these test submitting a finished poem', () => {
+      test('you can click on the "We are finished: Reveal the Poem" button', () => {
+        // Arrange
+        // Submit the poem
+        const finishPoemButton = screen.getByDisplayValue(/We are finished: Reveal the Poem/i);
+        // Make sure finish the poem is in the document
+        expect(finishPoemButton).toBeInTheDocument();
+      
+        // Act
+        userEvent.click(finishPoemButton);
+
+        // Assert
+        expect(screen.getByText(/Final Poem/i)).toBeInTheDocument();
       });
 
-      // Check that it says, "Final Poem"
-      expect(screen.getByText(/Final Poem/i)).toBeInTheDocument();
+      test('Adding 2 lines to the poem and then revealing it', () => {
+        const line1 = ['big', 'cat', 'abruptly', 'eats', 'tasty', 'dogfood'];
+        const line2 = ['small', 'pooch', 'slowly', 'whines', 'annoying', 'pest'];
+      
+        // Enter the 1st line into the poem
+        enterLineToPoem(line1);
+
+        // Enter the 2nd line into the poem
+        enterLineToPoem(line2);
+
+        // Now "abruptly" won't be shown  <-- Wave 3 Difference
+        // Previous lines are hidden until revealed at the end
+        const abruptlyElement = screen.queryByText(/abruptly/)
+        expect(abruptlyElement).toBeNull();
+
+        // Submit the poem
+        const finishPoemButton = screen.getByDisplayValue(/We are finished: Reveal the Poem/i);
+        userEvent.click(finishPoemButton);
+
+        // Assert the poem is displayed
+        line1.forEach((word) => {
+          expect(screen.getByText(new RegExp(word, 'i'))).toBeInTheDocument();
+        });
+
+        line2.forEach((word) => {
+          expect(screen.getByText(new RegExp(word, 'i'))).toBeInTheDocument();
+        });
+
+        // Check that it says, "Final Poem"
+        expect(screen.getByText(/Final Poem/i)).toBeInTheDocument();
+      });
     });
   });
 });
