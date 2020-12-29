@@ -73,13 +73,13 @@ Again, please limit the time you spend on styling, and reach out often and frequ
 
 To help you we have added `propTypes` and tests for each component.  The prop-types should help you identify the props to use in each component, and the tests can be used to verify the components, however there are many ways to implement the solution and your method may not pass all the tests.  
 
-- `RecentSubmission.test.js` - This test suite verifies that `RecentSubmission` renders and displays the text passed through the `submission` prop.
 - `PlayerSubmissionForm.test.js` - This suite verifies that the component renders the proper input fields, allows the user to type in them and when the form is submitted the callback prop `sendSubmission` is invoked.
+- `Game.test.js` - This test suite verifies that the user can enter text in the input fields, add lines to the poem and then reveal the poem.  It selects each item by the placeholder text, and the text in each button.
 - `FinalPoem.test.js` - this test suite verifies that `FinalPoem` 
   - renders a button with the text "We are finished: Reveal the Poem" when the prop `isSubmitted` is false.
   - calls the callback function when the button is clicked on and the prop `isSubmitted` is false.
   - Displays the lines of the poem when `isSubmitted` prop is true. and the button is hidden. 
-- `Game.test.js` - This test suite verifies that the user can enter text in the input fields, add lines to the poem and then reveal the poem.  It selects each item by the placeholder text, and the text in each button.
+- `RecentSubmission.test.js` - This test suite verifies that `RecentSubmission` renders and displays the text passed through the `submission` prop.
 
 ## Requirements
 
