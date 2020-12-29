@@ -124,6 +124,10 @@ describe('Game', () => {
       // Enter the 2nd line into the poem
       enterLineToPoem(line2);
 
+      // Now "abruptly" won't be shown
+      const abruptlyElement = screen.queryByText(/abruptly/)
+      expect(abruptlyElement).toBeNull();
+
       // Submit the poem
       const finishPoemButton = screen.getByDisplayValue(/We are finished: Reveal the Poem/i);
       userEvent.click(finishPoemButton);
