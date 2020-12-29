@@ -52,8 +52,8 @@ describe('Game', () => {
       render(<Game />);
     });
 
-
-    test('You can type into the input fields and add lines to the poem', () => {
+    test('You can type into the input fields and add lines to the poem, \
+          then click to reveal the final poem', () => {
       const text = 'abcdefghijklmnopqrstuvwxyz';
       let index = 0;
       let lineEndsIndex = [];
