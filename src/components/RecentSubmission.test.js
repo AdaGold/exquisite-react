@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 import RecentSubmission from './RecentSubmission';
 
 
-describe('RecentSubmission', () => {
+describe.skip('RecentSubmission', () => {
   test('It renders with a submission and shows the text', () => {
     // Act
     render(<RecentSubmission submission={'This is a submission'} />);
