@@ -1,6 +1,7 @@
 # Exquisite React
 
 ## At a Glance
+
 - Individual, [stage 2](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/classroom/rule-of-three.md#stage-2) project
 - Due before class, **[Enter Date Here]**
 - Submit this project with a PR
@@ -18,6 +19,8 @@ If you're curious about what the original Exquisite Corpse drawing game looks li
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Learning Goals
+
+By the end of this project we will be able to...
 
 - Practice using events
 - Pass custom information to an event handler function
@@ -65,6 +68,18 @@ Here's an example:
 In this case, there is some "block" (section, idea, maybe component) named `new-card-form`, and this style is for the "element" that represents the header by name of `header`. This style makes the header in the new card form `text-align: center;`. Note that this does not dictate what kind of HTML tag this is, or what its parent or children are.
 
 Again, please limit the time you spend on styling, and reach out often and frequently.
+
+### Tests
+
+To help you we have added `propTypes` and tests for each component.  The prop-types should help you identify the props to use in each component, and the tests can be used to verify the components, however there are many ways to implement the solution and your method may not pass all the tests.  
+
+- `PlayerSubmissionForm.test.js` - This suite verifies that the component renders the proper input fields, allows the user to type in them and when the form is submitted the callback prop `sendSubmission` is invoked.
+- `Game.test.js` - This test suite verifies that the user can enter text in the input fields, add lines to the poem and then reveal the poem.  It selects each item by the placeholder text, and the text in each button.
+- `FinalPoem.test.js` - this test suite verifies that `FinalPoem` 
+  - renders a button with the text "We are finished: Reveal the Poem" when the prop `isSubmitted` is false.
+  - calls the callback function when the button is clicked on and the prop `isSubmitted` is false.
+  - Displays the lines of the poem when `isSubmitted` prop is true. and the button is hidden. 
+- `RecentSubmission.test.js` - This test suite verifies that `RecentSubmission` renders and displays the text passed through the `submission` prop.
 
 ## Requirements
 
@@ -130,6 +145,7 @@ The goal of this wave is to add details to show, hide, or modify different compo
 - You'll probably want to make a variable with the JSX code or empty string you want, and then use `{}` (curly brackets) to put it inside of other JSX
 - You can actually also do one-line ternaries in JSX...
 - Don't be afraid of using conditionals, and making more `props` if needed!
+- READ the prop-types as they can be a big hint!
 
 ## Optional Enhancement: Refactor to a Dynamically-Generated Form
 
@@ -142,4 +158,5 @@ Refactor your project so `PlayerSubmissionForm` dynamically generates the poetry
 Feel free to use a different data structure other than what `FIELDS` has if you don't like it, but it's what the deployed version uses.
 
 ## What Instructors Are Looking For
+
 Check out the [feedback template](feedback.md) which lists the items instructors will be looking for as they evaluate your project.
