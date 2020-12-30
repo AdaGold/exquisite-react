@@ -81,6 +81,8 @@ To help you we have added `propTypes` and tests for each component.  The prop-ty
   - Displays the lines of the poem when `isSubmitted` prop is true. and the button is hidden. 
 - `RecentSubmission.test.js` - This test suite verifies that `RecentSubmission` renders and displays the text passed through the `submission` prop.
 
+**Note** The tests tend to select the input fields to type in, by their placeholder text, so **match the placeholder text exactly**.
+
 ## Requirements
 
 ### Wave 0: Establish the Relationships
