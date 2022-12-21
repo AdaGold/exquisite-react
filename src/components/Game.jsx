@@ -13,6 +13,22 @@ const Game = () => {
     }
   }).join(' ');
 
+  const [lines, setLines] = useState([]);
+  const [done, setDone] = useState(false);
+
+  const handleSubmission = (formData) => {
+    setLines(lines => [...lines, formData]);
+  };
+
+  const handleReveal = () => {
+    setDone(true);
+  };
+
+  const restartGame = () => {
+    setLines([]);
+    setDone(false);
+  };
+
   return (
     <div className="Game">
       <h2>Game</h2>
@@ -31,16 +47,28 @@ const Game = () => {
         {exampleFormat}
       </p>
 
-      <RecentSubmission />
+      {
+        done &&
+        <div className='Game__restart-btn-container'>
+          <button className='Game__restart-btn' onClick={() => restartGame()}>Restart</button>
+        </div>
+      }
 
-      <PlayerSubmissionForm />
+      {
+        !done && lines.length > 0 &&
+        <RecentSubmission submission={lines[lines.length - 1]} />
+      }
 
-      <FinalPoem />
+      {
+        !done &&
+        <PlayerSubmissionForm index={lines.length + 1} fields={FIELDS} sendSubmission={handleSubmission} />
+      }
+
+      <FinalPoem isSubmitted={done} submissions={lines} revealPoem={handleReveal} />
 
     </div>
   );
 };
-
 
 const FIELDS = [
   'The',

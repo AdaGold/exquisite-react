@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 import './PlayerSubmissionForm.css';
 
-const PlayerSubmissionForm = () => {
+const PlayerSubmissionForm = ({ index, sendSubmission, fields }) => {
   return (
     <div className="PlayerSubmissionForm">
-      <h3>Player Submission Form for Player #{ }</h3>
+      <h3>Player Submission Form for Player #{index}</h3>
 
-      <form className="PlayerSubmissionForm__form" >
+      <form className="PlayerSubmissionForm__form">
 
         <div className="PlayerSubmissionForm__poem-inputs">
 

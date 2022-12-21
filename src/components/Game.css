@@ -2,3 +2,21 @@
   text-align: center;
   font-style: italic;
 }
+
+.Game__restart-btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.Game__restart-btn {
+  flex: 0.4;
+
+  padding: 1rem;
+  border: 2px black solid;
+  box-shadow: 5px 10px black;
+  transition: 0.25s;
+}
+
+.Game__restart-btn:hover {
+  background-color: tomato;
+}
