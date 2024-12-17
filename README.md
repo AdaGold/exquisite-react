@@ -1,11 +1,5 @@
 # Exquisite React
 
-## At a Glance
-
-- Individual, [stage 2](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/classroom/rule-of-three.md#stage-2) project
-- Due before class, **[Enter Date Here]**
-- Submit this project with a PR
-
 ## Introduction
 
 > Exquisite Corpse is a collaborative poetry game that traces its roots to the Parisian Surrealist Movement. Exquisite Corpse is played by several people, each of whom writes a word on a sheet of paper, folds the paper to conceal it, and passes it on to the next player for [their] contribution.
@@ -16,7 +10,7 @@
 
 If you're curious about what the original Exquisite Corpse drawing game looks like, check out [this video](https://www.youtube.com/watch?v=py_xXvJoYcQ).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Vite](https://github.com/vitejs/vite).
 
 ## Learning Goals
 
@@ -44,7 +38,7 @@ Besides the `App` component, we've provided the following components and CSS for
 
 Each component already has some code in there for rendering. However, everything else is missing: `state`, `props`, any callbacks, event handlers, or helper functions (with the exception of `Game` component). However, not every render function may need to look like that in the end result. In fact, **it is expected that the render functions change** in order to accommodate the requirements (namely the ones about conditional rendering).
 
-After you fork and clone this project, run `npm install` and `npm start`. What do you see? Can you identify what you see and which component it comes from?
+After you fork and clone this project, run `npm install` and `npm run dev`. What do you see? Can you identify what you see and which component it comes from?
 
 ### A Note About Styles
 
@@ -73,13 +67,13 @@ Again, please limit the time you spend on styling, and reach out often and frequ
 
 To help you we have added `propTypes` and tests for each component.  The prop-types should help you identify the props to use in each component, and the tests can be used to verify the components, however there are many ways to implement the solution and your method may not pass all the tests.  
 
-- `PlayerSubmissionForm.test.js` - This suite verifies that the component renders the proper input fields, allows the user to type in them and when the form is submitted the callback prop `sendSubmission` is invoked.
-- `Game.test.js` - This test suite verifies that the user can enter text in the input fields, add lines to the poem and then reveal the poem.  It selects each item by the placeholder text, and the text in each button.
-- `FinalPoem.test.js` - this test suite verifies that `FinalPoem` 
+- `PlayerSubmissionForm.test.jsx` - This suite verifies that the component renders the proper input fields, allows the user to type in them and when the form is submitted the callback prop `sendSubmission` is invoked.
+- `Game.test.jsx` - This test suite verifies that the user can enter text in the input fields, add lines to the poem and then reveal the poem.  It selects each item by the placeholder text, and the text in each button.
+- `FinalPoem.test.jsx` - this test suite verifies that `FinalPoem` 
   - renders a button with the text "We are finished: Reveal the Poem" when the prop `isSubmitted` is false.
   - calls the callback function when the button is clicked on and the prop `isSubmitted` is false.
   - Displays the lines of the poem when `isSubmitted` prop is true. and the button is hidden. 
-- `RecentSubmission.test.js` - This test suite verifies that `RecentSubmission` renders and displays the text passed through the `submission` prop.
+- `RecentSubmission.test.jsx` - This test suite verifies that `RecentSubmission` renders and displays the text passed through the `submission` prop.
 
 **Note** The tests tend to select the input fields to type in, by their placeholder text, so **match the placeholder text exactly**.
 
@@ -153,7 +147,7 @@ The goal of this wave is to add details to show, hide, or modify different compo
 
 We started this project with hard-coded forms to comply with our format: "The adjective noun adverb verb the adjective noun". But what if we wanted to make this extensible to any format?
 
-Refactor your project so `PlayerSubmissionForm` dynamically generates the poetry input elements. You are free to use the `const` variable `FIELDS` located in the `components/Game.js`. Your `Game` component should be able to access `FIELDS`, iterate over it, or even... pass it into other components.
+Refactor your project so `PlayerSubmissionForm` dynamically generates the poetry input elements. You are free to use the `const` variable `FIELDS` located in the `components/Game.jsx`. Your `Game` component should be able to access `FIELDS`, iterate over it, or even... pass it into other components.
 
 `FIELDS` is an array that contains both strings and objects. Iterating over this and using elements in this array should have certain conditions to think about, but it shouldn't feel too tricky.
 

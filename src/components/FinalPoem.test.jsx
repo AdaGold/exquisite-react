@@ -1,6 +1,5 @@
-import React from 'react';
-import '@testing-library/jest-dom/extend-expect';
 import { render, screen } from '@testing-library/react';
+import { vi } from 'vitest';
 import userEvent from '@testing-library/user-event';
 
 import FinalPoem from './FinalPoem';
@@ -16,13 +15,13 @@ describe.skip('FinalPoem', () => {
       expect(button).toBeInTheDocument();
     });
 
-    test('it calls the callback function when the button is clicked on', () => {
+    test('it calls the callback function when the button is clicked on', async () => {
       // Arrange
-      const callbackFunction = jest.fn();
+      const callbackFunction = vi.fn();
       // Act
       render(<FinalPoem isSubmitted={false} submissions={[]} revealPoem={callbackFunction} />);
       const button = screen.getByText(/We are finished: Reveal the Poem/u);
-      userEvent.click(button);
+      await userEvent.click(button);
 
       expect(callbackFunction).toHaveBeenCalled();
     });
@@ -42,7 +41,7 @@ describe.skip('FinalPoem', () => {
         'An old silent pond',
         'A frog jumps into the pond—',
         'Splash! Silence again.',
-      ]
+      ];
 
       // Act
       render(<FinalPoem isSubmitted={true} submissions={poem} revealPoem={() => { }} />);

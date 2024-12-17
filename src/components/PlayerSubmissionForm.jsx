@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import './PlayerSubmissionForm.css';
@@ -6,7 +6,7 @@ import './PlayerSubmissionForm.css';
 const PlayerSubmissionForm = () => {
   return (
     <div className="PlayerSubmissionForm">
-      <h3>Player Submission Form for Player #{  }</h3>
+      <h3>Player Submission Form for Player #{ }</h3>
 
       <form className="PlayerSubmissionForm__form" >
 
@@ -27,7 +27,7 @@ const PlayerSubmissionForm = () => {
       </form>
     </div>
   );
-}
+};
 
 PlayerSubmissionForm.propTypes = {
   index: PropTypes.number.isRequired,
@@ -39,6 +39,6 @@ PlayerSubmissionForm.propTypes = {
       placeholder: PropTypes.string.isRequired,
     }),
   ])).isRequired,
-}
+};
 
 export default PlayerSubmissionForm;

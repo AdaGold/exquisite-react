@@ -1,9 +1,7 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import './FinalPoem.css';
 
 const FinalPoem = (props) => {
-
   return (
     <div className="FinalPoem">
       <section className="FinalPoem__poem">
@@ -16,7 +14,7 @@ const FinalPoem = (props) => {
       </div>
     </div>
   );
-}
+};
 
 FinalPoem.propTypes = {
   isSubmitted: PropTypes.bool.isRequired,
