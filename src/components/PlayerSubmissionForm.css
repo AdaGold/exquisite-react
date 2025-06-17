@@ -31,10 +31,7 @@
   background-color: tomato;
 }
 
-.PlayerSubmissionForm__input--invalid {
+.PlayerSubmissionForm__poem-inputs input[type="text"]:placeholder-shown {
   background-color: #FFE9E9;
-}
-
-.PlayerSubmissionForm__input--invalid::placeholder {
   color: black;
 }

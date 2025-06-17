@@ -4,10 +4,10 @@ import PlayerSubmissionForm from './PlayerSubmissionForm';
 import FinalPoem from './FinalPoem';
 import RecentSubmission from './RecentSubmission';
 
-const makeLine = (fields, formData) => {
+const makeLineFromFormData = (fields, formData) => {
   return fields.map((field) => {
     if (field.key) {
-      return formData[field.key];
+      return formData.get(field.key);
     } else {
       return field;
     }
@@ -26,8 +26,8 @@ const Game = () => {
   const [lines, setLines] = useState([]);
   const [done, setDone] = useState(false);
 
-  const handleSubmission = (formData) => {
-    const line = makeLine(FIELDS, formData);
+  const submissionAction = (formData) => {
+    const line = makeLineFromFormData(FIELDS, formData);
     setLines(lines => [...lines, line]);
   };
 
@@ -72,7 +72,7 @@ const Game = () => {
 
       {
         !done &&
-        <PlayerSubmissionForm index={lines.length + 1} fields={FIELDS} sendSubmission={handleSubmission} />
+        <PlayerSubmissionForm index={lines.length + 1} fields={FIELDS} submissionAction={submissionAction} />
       }
 
       <FinalPoem isSubmitted={done} submissions={lines} revealPoem={handleReveal} />
